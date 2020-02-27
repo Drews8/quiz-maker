@@ -4,7 +4,9 @@
     justify-content: center;
     padding-top: 100px;
     flex-grow: 1;
-    background-image: linear-gradient(-225deg, #FFE29F 0%, #FFA99F 48%, #FF719A 100%);
+
+    background-image: linear-gradient(rgba(221,214,243, 0.7), rgba(250,172,168, 0.6));
+    background-size: 100vh;
 }
 .Quiz h1{
     color: #fff;
@@ -13,4 +15,5 @@
 
 .QuizWrapper{
     max-width: 800px;
+    width: 100%;
 }

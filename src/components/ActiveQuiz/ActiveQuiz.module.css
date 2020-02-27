@@ -1,7 +1,10 @@
 .ActiveQuiz {
     color: #fff;
     padding: 20px;
-    border: 1px solid #fefefe;
+    border: 2px solid #fefefe;
+    background-image: linear-gradient( rgba(236,111,102, 0.3), rgba(243,161,131, 0.4));
+    border-radius: 10px;
+
 }
 
 .ActiveQuiz p {

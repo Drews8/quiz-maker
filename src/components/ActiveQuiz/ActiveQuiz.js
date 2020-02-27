@@ -3,12 +3,16 @@ import classes from "./ActiveQuiz.module.css"
 import AnswersList from "../AnswersList/AnswersList";
 
 const ActiveQuiz = props => {
+
+
   return (
     <div className={classes.ActiveQuiz}>
-      <p>2 from 12</p>
-      <h2>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima, voluptate?</h2>
+      <p>{props.answerNumber} from {props.quizLength}</p>
+      <h2>{props.question}</h2>
       <AnswersList
+        state={props.state}
         answers={props.answers}
+        onAnswerClickHandler={props.onAnswerClickHandler}
       />
     </div>
   )
