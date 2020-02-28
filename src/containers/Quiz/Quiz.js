@@ -6,6 +6,7 @@ import FinishedQuiz from "../../components/FinishedQuiz/FinishedQuiz";
 
 class Quiz extends Component {
   state = {
+    results: {},
     isFinished: false,
     activeQuestion: 0,
     answerState: null,
@@ -36,6 +37,7 @@ class Quiz extends Component {
   }
 
   onAnswerClickHandler = answerId => {
+    console.log("answerId: ", this.state);
     if (this.state.answerState) {
       const key = Object.keys(this.state.answerState)[0];
       if (this.state.answerState[key] === "success") {
@@ -44,11 +46,15 @@ class Quiz extends Component {
     }
 
     const currentQuestion = this.state.quiz[this.state.activeQuestion];
-    console.log("current: ", currentQuestion.id);
+    const results = this.state.results;
 
     if (currentQuestion.rightAnswerId === answerId) {
+      if (!results[answerId]) {
+        results[answerId] = 'success'
+      }
       this.setState({
-        answerState: {[answerId]: 'success'}
+        answerState: {[answerId]: 'success'},
+        results
       })
 
       const timeout = window.setTimeout(() => {
@@ -64,8 +70,10 @@ class Quiz extends Component {
         window.clearTimeout(timeout);
       }, 1000)
     } else {
+      results[answerId] = 'error';
       this.setState({
-        answerState: {[answerId]: 'error'}
+        answerState: {[answerId]: 'error'},
+        results//
       })
     }
 
@@ -80,12 +88,13 @@ class Quiz extends Component {
     return (
       <div className={classes.Quiz}>
         <div className={classes.QuizWrapper}>
-          <h1>World!</h1>
+          <h1>Quiz</h1>
           {
             this.state.isFinished
               ? <FinishedQuiz
-
-                />
+                results={this.state.results}
+                quiz={this.state.quiz}
+              />
               : <ActiveQuiz
                 answers={this.state.quiz[this.state.activeQuestion].answers}
                 question={this.state.quiz[this.state.activeQuestion].question}

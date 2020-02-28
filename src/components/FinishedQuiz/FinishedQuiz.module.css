@@ -1,3 +1,32 @@
 .FinishedQuiz{
+    color: #fff;
+    padding: 20px;
+    border: 2px solid #fefefe;
+    background-image: linear-gradient( rgba(236,111,102, 0.3), rgba(243,161,131, 0.4));
+    border-radius: 10px;
+}
+
+.FinishedQuiz ul{
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+.error{
+    color: rgba(240, 87, 108, .7);
+    margin-right: 2px;
+}
+.success{
+    color: rgba(161, 240, 69, .7);
 
 }
+
+/*.AnswerItem.error{
+    background: rgba(240, 87, 108, .7);
+}
+.AnswerItem.error:hover{
+    color: #fff;
+}
+
+.AnswerItem.success{
+    background: rgba(161, 240, 69, .7);
+}*/
