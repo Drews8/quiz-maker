@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import Layout from "./hoc/Layout/Layout";
 import Quiz from "./containers/Quiz/Quiz";
 import {Route, Switch} from "react-router-dom";
-import Drawer from "./components/Navigation/Drawer/Drawer";
 import Auth from "./containers/Auth/Auth";
 import QuizCreator from "./containers/QuizCreator/QuizCreator";
 import QuizList from "./containers/QuizList/QuizList";
@@ -18,8 +17,7 @@ class App extends Component {
                   <Route path="/quiz/:id" component={Quiz}/>
                   <Route path="/" component={QuizList}/>
                 </Switch>
-                {/*<Drawer/>*/}
-                {/*<Quiz/>*/}
+
             </Layout>
         );
     }
