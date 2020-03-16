@@ -74,7 +74,7 @@ class Auth extends Component {
 
     let isFormValid = true;
     Object.keys(formControls).forEach(name => {
-       isFormValid = formControls[name].valid && isFormValid
+      isFormValid = formControls[name].valid && isFormValid
     })
     this.setState({
       formControls,
@@ -96,8 +96,6 @@ class Auth extends Component {
           shouldValidate={!!control.validation}
           errorMessage={control.errorMessage}
           onChange={event => this.onChangeHandler(event, controlName)}
-
-
         />
       )
     })
