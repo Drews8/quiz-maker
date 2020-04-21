@@ -19,7 +19,7 @@ class Quiz extends Component {
           {text: '1998', id: 1},
           {text: '1993', id: 2},
           {text: '1995', id: 3},
-          {text: '2000', id: 4}
+          {text: ']2000', id: 4}
         ]
       },
       {
@@ -67,13 +67,13 @@ class Quiz extends Component {
             answerState: null
           })
         }
-        window.clearTimeout(timeout);
+        window.clearTimeout(timeout)
       }, 1000)
     } else {
       results[currentQuestion.id] = 'error';
       this.setState({
         answerState: {[answerId]: 'error'},
-        results//
+        results
       })
     }
 

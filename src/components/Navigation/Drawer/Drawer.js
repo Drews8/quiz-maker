@@ -34,12 +34,23 @@ class Drawer extends Component {
     })
 
   }
+  handleKeyPress = event => {
+    if(event.keyCode === 27){
+      this.props.onClose()
+    }
+  }
 
   render() {
+
+
+
     const cls = [classes.Drawer];
 
     if (!this.props.isOpen) {
       cls.push(classes.close)
+      document.removeEventListener('keydown', this.handleKeyPress)
+    } else {
+      document.addEventListener('keydown', this.handleKeyPress)
     }
 
 
@@ -50,7 +61,10 @@ class Drawer extends Component {
             {this.renderLinks()}
           </ul>
         </nav>
-        {this.props.isOpen ? <Backdrop onClick={this.props.onClose}/> : null}
+        {this.props.isOpen
+          ? <Backdrop
+            onClick={this.props.onClose}
+            /> : null}
       </React.Fragment>
     )
   }
