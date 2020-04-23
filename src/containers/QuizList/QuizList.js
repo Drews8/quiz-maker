@@ -3,6 +3,7 @@ import classes from "./QuizList.module.css"
 import {NavLink} from "react-router-dom";
 import axios from "../../axios/axios-quiz";
 import Loader from "../../components/UI/Loader/Loader";
+import {connect} from "react-redux";
 
 class QuizList extends Component {
 
@@ -57,4 +58,16 @@ class QuizList extends Component {
   }
 }
 
-export default QuizList;
+function mapStateToProps(state) {
+  return {
+
+  }
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+
+  }
+}
+
+export default connect()(QuizList);
