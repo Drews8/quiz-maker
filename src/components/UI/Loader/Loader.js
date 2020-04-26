@@ -3,11 +3,18 @@ import classes from './Loader.module.css'
 
 const Loader = () => {
   return (
-    <div className={classes.Loader}>
-      <div/>
-      <div/>
-      <div/>
-      <div/>
+    <div style={{
+      height: '50%',
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+    }}>
+      <div className={classes.Loader}>
+        <div/>
+        <div/>
+        <div/>
+        <div/>
+      </div>
     </div>
   );
 };
