@@ -4,20 +4,13 @@ import Backdrop from "../../UI/Backdrop/Backdrop";
 import {NavLink} from "react-router-dom";
 
 
-const links = [
-  {to: '/', label: 'Список', exact: true},
-  {to: '/auth', label: 'Авторизація', exact: false},
-  {to: '/quiz-creator', label: 'Створити тест', exact: false},
-];
-
-
 class Drawer extends Component {
 
   clickHandler = () => {
     this.props.onClose();
   }
 
-  renderLinks() {
+  renderLinks(links) {
     return links.map((link, index) => {
       return (
         <li key={index}>
@@ -34,14 +27,14 @@ class Drawer extends Component {
     })
 
   }
+
   handleKeyPress = event => {
-    if(event.keyCode === 27){
+    if (event.keyCode === 27) {
       this.props.onClose()
     }
   }
 
   render() {
-
 
 
     const cls = [classes.Drawer];
@@ -53,18 +46,27 @@ class Drawer extends Component {
       document.addEventListener('keydown', this.handleKeyPress)
     }
 
+    let links = [
+      {to: '/', label: 'Список тестів', exact: true},]
+
+    if (this.props.isAuthenticated) {
+      links.push({to: '/quiz-creator', label: 'Створити тест', exact: false})
+      links.push({to: '/logout', label: 'Вийти', exact: false})
+    } else {
+      links.push({to: '/auth', label: 'Авторизація', exact: false})
+    }
 
     return (
       <React.Fragment>
         <nav className={cls.join(' ')}>
           <ul>
-            {this.renderLinks()}
+            {this.renderLinks(links)}
           </ul>
         </nav>
         {this.props.isOpen
           ? <Backdrop
             onClick={this.props.onClose}
-            /> : null}
+          /> : null}
       </React.Fragment>
     )
   }
